@@ -1,0 +1,28 @@
+#heading {
+	margin-top: 30px;
+	text-align:center;
+}
+.map {
+	display: block;
+	margin: 0 auto;
+}
+#map {
+	display: block;
+    margin: 0 auto;
+}
+#distance {
+	font-size: 1.2rem;
+	text-align: center;
+}
+#map{
+    width: 320px;
+    height: 320px;
+}
+.instructions{
+	min-height: 100vh;
+	min-width: 100vw;
+	background-color: cadetblue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

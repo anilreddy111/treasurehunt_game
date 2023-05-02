@@ -1,0 +1,11 @@
+.won{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wonImg{
+    width: 320px;
+    height: 320px;
+}
