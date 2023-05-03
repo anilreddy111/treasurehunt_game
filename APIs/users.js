@@ -43,7 +43,7 @@ usersApp.post('/createuser', expressAsyncHandler(async (request, response) => {
 usersApp.post('/login', expressAsyncHandler(async (request, response) => {
     let userObj = request.body
     let usersCollection = await getCollection("users")
-    let userObjDb = await usersCollection.findOne({ username: userObj.username })
+    let userObjDb = await usersCollection.findOne({ email: userObj.email, type : userObj.type })
 
     if (userObjDb == null) response.send({ message: "Wrong user name" })
     else {
@@ -52,7 +52,7 @@ usersApp.post('/login', expressAsyncHandler(async (request, response) => {
             response.send({ message: "incorrect password" })
         }
         else {
-            let token = jwt.sign({ username: userObjDb.username }, process.env.SECRET_KEY, { expiresIn: "1d" })
+            let token = jwt.sign({ email: userObjDb.email }, process.env.SECRET_KEY, { expiresIn: "1d" })
             response.send(token)
         }
     }

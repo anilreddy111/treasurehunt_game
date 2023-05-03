@@ -8,6 +8,7 @@ import Lost from './components/Lost';
 import Won from './components/Won';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import Admindashboard from './pages/admin/admindashboard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/won" element={<Won />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/admin" element={<Admindashboard />} />
       </Routes>
     </div>
   );
