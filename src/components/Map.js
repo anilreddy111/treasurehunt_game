@@ -48,6 +48,7 @@ function Map() {
             const y = e.nativeEvent.offsetY - target.oy
             console.log(Math.sqrt(x * x + y * y) <= 24)
             if (Math.sqrt(x * x + y * y) <= 24) {
+                localStorage.setItem("count",cnt)
                 setStatus(true)
                 setChoosable(false)
                 localStorage.setItem("round","2")

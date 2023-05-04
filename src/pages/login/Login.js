@@ -10,7 +10,7 @@ function Login() {
     const [password, setPassword] = useState("")
     const [type, setType] = useState("")
     const navigate = useNavigate()
-
+    
     const handleChange = (event) => {
         setType(event.target.value)
     }
@@ -29,9 +29,11 @@ function Login() {
 
         if (!res.data.message) {
             localStorage.setItem("token", res.data)
+            localStorage.setItem("email", name)
             if(type === "user") navigate("/home")
             else navigate("/admin")
         }
+
         else alert(res.data.message)
     }
 

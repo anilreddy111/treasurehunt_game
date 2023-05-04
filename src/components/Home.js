@@ -20,7 +20,7 @@ function Home() {
         <div className='homeOut'>
             <div className='logoutDiv'>
                 <button className='btn btn-primary ms-auto m-3' onClick={() => {
-                    localStorage.removeItem("token")
+                    localStorage.clear()
                     navigate("/login")
                 }}>
                     Logout

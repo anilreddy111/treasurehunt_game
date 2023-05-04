@@ -4,6 +4,7 @@ const usersApp = require('./APIs/users')
 const path = require("path")
 require('dotenv').config()
 
+
 app.use(express.static(path.join(__dirname, './build')))
 
 app.use(express.json())
@@ -13,7 +14,6 @@ app.get("/test", (req, res) => {
     res.send("<h1>Success!</h1>")
 })
 app.use('/users', usersApp)
-
 
 //dealing with page refresh
 app.use('*', (request, response) => {

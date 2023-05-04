@@ -58,4 +58,22 @@ usersApp.post('/login', expressAsyncHandler(async (request, response) => {
     }
 }))
 
+//leaderboard
+usersApp.post('/leader', expressAsyncHandler(async (request, response) => {
+    let userObj = request.body
+    let leaderCollection = await getCollection("leaderboard")
+    let userObjDb = await leaderCollection.findOne({ email: userObj.email})
+
+    if (userObjDb == null) {
+        await leaderCollection.insertOne(userObj)
+    }
+}))
+
+//get leaderboard
+usersApp.get('/getleader', expressAsyncHandler(async (request, response) => {
+    let leaderCollection = await getCollection("leaderboard")
+    let usersObj = await leaderCollection.find().toArray()
+    response.send({ message: "all users", payload: usersObj })
+}))
+
 module.exports = usersApp;

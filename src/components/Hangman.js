@@ -66,22 +66,27 @@ class Hangman extends Component {
 
     if (isWinner) {
       gameStat = "You Won!!!"
-      window.location.pathname = "won"
+      localStorage.setItem("mistakes", this.state.mistake);
+      window.location.pathname = "won";
     }
 
     if (gameOver) {
+
       gameStat = "You Lost!!!"
+      window.location.pathname = "lost";
     }
 
     return (
-      <div className="Hangman container">
-        <h3 className='text-center'>Guess the word correctly to escape from the Island with treasure otherwise, you will be hanged</h3>
-        <div className="float-right">Wrong Guesses: {this.state.mistake} of {this.props.maxWrong}</div>
+      <div className="Hangman m-5">
+        <h3 className='text-info'>Guess the word correctly to escape from the Island with treasure otherwise, you will be hanged</h3>
+
+        <div className="float-right text-center display-6 text-danger">Wrong Guesses: {this.state.mistake} of {this.props.maxWrong}</div>
         <div className="text-center">
           <img src={this.props.images[this.state.mistake]} alt=""/>
         </div>
         <div className="text-center">
-          <p>{this.state.answer.question}:</p>
+        <p className='display-6'>QUESTION TO OPEN THE TREASURE</p>
+          <p className='display-6 text-success'>{this.state.answer.question}:</p>
           <p>
             {!gameOver ? this.guessedWord() : this.state.answer.answer}
           </p>
